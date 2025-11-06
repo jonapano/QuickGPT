@@ -73,43 +73,45 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }) => {
         }
       </div>
 
-      {/* Community Images */}
-      <div onClick={() => {navigate('/community'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
-        <img src={assets.gallery_icon} className='w-4.5 not-dark:invert' alt="" />
-        <div className='flex flex-col text-sm'>
-          <p>Community Images</p>
-        </div>
-      </div>
-
-      {/* Credit Purchases Option */}
-      <div onClick={() => {navigate('/credits'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
-        <img src={assets.diamond_icon} className='w-4.5 dark:invert' alt="" />
-        <div className='flex flex-col text-sm'>
-          <p>Credits : {user?.credits}</p>
-          <p className='text-xs text-gray-400'>Purchase credits to use quickgpt</p>
-        </div>
-      </div>
-
-      {/* Dark Mode Toggle */}
-      <div className='flex items-center justify-between gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md'>
-        <div className='flex items-center gap-2 text-sm'>
-          <img src={assets.theme_icon} className='w-4 not-dark:invert' alt="" />
-          <p>Dark Mode</p>
-        </div>
-        <label className='relative inline-flex cursor-pointer'>
-          <input onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} type="checkbox" className='sr-only peer' checked={theme === 'dark'} />
-          <div className='w-9 h-5 bg-gray-400 rounded-full peer-checked:bg-purple-600 transition-all'>
+      <div className='flex flex-col mt-auto'>
+        {/* Community Images */}
+        <div onClick={() => {navigate('/community'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
+          <img src={assets.gallery_icon} className='w-4.5 not-dark:invert' alt="" />
+          <div className='flex flex-col text-sm'>
+            <p>Community Images</p>
           </div>
-          <span className='absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform peer-checked:translate-x-4'>
-          </span>
-        </label>
-      </div>
+        </div>
 
-      {/* User Account */}
-      <div className='flex items-center gap-3 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer group'>
-        <img src={assets.user_icon} className='w-7 rounded-full' alt="" />
-        <p className='flex-1 text-sm dark:text-primary truncate'>{user ? user.name : 'Login your account'}</p>
-        {user && <img onClick={logout} className='h-5 cursor-pointer hidden not-dark:invert group-hover:block' src={assets.logout_icon} />}
+        {/* Credit Purchases Option */}
+        <div onClick={() => {navigate('/credits'); setIsMenuOpen(false)}} className='flex items-center gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer hover:scale-103 transition-all'>
+          <img src={assets.diamond_icon} className='w-4.5 dark:invert' alt="" />
+          <div className='flex flex-col text-sm'>
+            <p>Credits : {user?.credits}</p>
+            <p className='text-xs text-gray-400'>Purchase credits to use quickgpt</p>
+          </div>
+        </div>
+
+        {/* Dark Mode Toggle */}
+        <div className='flex items-center justify-between gap-2 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md'>
+          <div className='flex items-center gap-2 text-sm'>
+            <img src={assets.theme_icon} className='w-4 not-dark:invert' alt="" />
+            <p>Dark Mode</p>
+          </div>
+          <label className='relative inline-flex cursor-pointer'>
+            <input onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} type="checkbox" className='sr-only peer' checked={theme === 'dark'} />
+            <div className='w-9 h-5 bg-gray-400 rounded-full peer-checked:bg-purple-600 transition-all'>
+            </div>
+            <span className='absolute left-1 top-1 w-3 h-3 bg-white rounded-full transition-transform peer-checked:translate-x-4'>
+            </span>
+          </label>
+        </div>
+
+        {/* User Account */}
+        <div className='flex items-center gap-3 p-3 mt-4 border border-gray-300 dark:border-white/15 rounded-md cursor-pointer group'>
+          <img src={assets.user_icon} className='w-7 rounded-full' alt="" />
+          <p className='flex-1 text-sm dark:text-primary truncate'>{user ? user.name : 'Login your account'}</p>
+          {user && <img onClick={logout} className='h-5 cursor-pointer hidden not-dark:invert group-hover:block' src={assets.logout_icon} />}
+        </div>
       </div>
 
       <img onClick={() => setIsMenuOpen(false)} src={assets.close_icon} className='absolute top-3 right-3 w-5 h-5 cursor-pointer md:hidden not-dark:invert' alt="" />
